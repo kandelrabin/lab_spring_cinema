@@ -14,10 +14,13 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception{
-        movieService.addNewMovie("Interstellar", "12A", 2.8);
-        movieService.addNewMovie("Alien: Covenant", "15", 2.0);
-        movieService.addNewMovie("Iron Man", "12A", 2.0);
-        movieService.addNewMovie("Ant-Man and the Wasp: Quantumania", "PG-13", 2.0);
+        movieService.addNewMovie("Interstellar", "12A", 181);
+        movieService.addNewMovie("Alien: Covenant", "18", 117);
+        movieService.addNewMovie("Iron Man", "12A", 126);
+        movieService.addNewMovie("Ant-Man", "PG-13", 117);
+        movieService.addNewMovie("Titanic", "18", 160);
+        movieService.addNewMovie("Avengers: Engdame", "12A", 181);
+
     }
 
 }

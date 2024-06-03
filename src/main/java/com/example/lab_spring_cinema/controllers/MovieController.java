@@ -66,5 +66,11 @@ public class MovieController {
         return movieService.deleteMovieById(id);
     }
 
+    @GetMapping(value = "/findby")
+    public ResponseEntity<List<Movie>> getMoviesWithDurationLessThan(@RequestParam double duration){
+        List<Movie> movies = movieService.getMovieWithDurationLessThan(duration);
+        return new ResponseEntity<>(movies, HttpStatus.OK);
+    }
+
 
 }

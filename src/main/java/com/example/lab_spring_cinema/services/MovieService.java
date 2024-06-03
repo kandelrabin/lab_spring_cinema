@@ -50,4 +50,10 @@ public class MovieService {
             return new ResponseEntity<>("Movie deleted", HttpStatus.ACCEPTED);
         }
     }
+
+    public List<Movie> getMovieWithDurationLessThan(double duration){
+        return movieRepository.findMoviesWithDurationLessThan(duration);
+    }
+
+
 }
