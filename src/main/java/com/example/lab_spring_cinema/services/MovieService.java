@@ -27,4 +27,14 @@ public class MovieService {
     public List<Movie> getAllMovies(){
         return movieRepository.findAll();
     }
+
+    public String updateMovie(long id, String newTitle, String newRating, double newDuration){
+        Movie movie = movieRepository.findById(id).get();
+        movie.setTitle(newTitle);
+        movie.setRating(newRating);
+        movie.setDuration(newDuration);
+        movieRepository.save(movie);
+        movieRepository.flush();
+        return "Movie updated!";
+    }
 }

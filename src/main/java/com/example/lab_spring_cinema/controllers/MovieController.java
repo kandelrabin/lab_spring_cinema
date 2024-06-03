@@ -51,4 +51,15 @@ public class MovieController {
         }
     }
 
+    @PatchMapping(value = "/{id}")
+    public ResponseEntity<String> updateMovie(@PathVariable long id, @RequestBody MovieIO newMovieInfo){
+         String updateMovieStatus= movieService.updateMovie(
+                id,
+                newMovieInfo.getTitle(),
+                newMovieInfo.getRating(),
+                newMovieInfo.getDuration());
+         return new ResponseEntity<>(updateMovieStatus, HttpStatus.ACCEPTED);
+    }
+
+
 }
