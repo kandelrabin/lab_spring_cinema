@@ -1,41 +1,19 @@
 package com.example.lab_spring_cinema.models;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "movies")
-public class Movie {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(name = "title")
+public class MovieIO {
     private String title;
-
-    @Column(name = "rating")
     private String rating;
-
-    @Column(name = "duration")
     private double duration;
+    private String message;
 
-
-    public Movie(String title, String rating, double duration){
+    public MovieIO(String title, String rating, double duration){
         this.title = title;
         this.rating = rating;
         this.duration = duration;
+        this.message = (this.title == null) ? "Movie not found!": "movie found!";
     }
 
-    public Movie(){
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    public MovieIO(){}
 
     public String getTitle() {
         return title;
@@ -59,5 +37,13 @@ public class Movie {
 
     public void setDuration(double duration) {
         this.duration = duration;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
