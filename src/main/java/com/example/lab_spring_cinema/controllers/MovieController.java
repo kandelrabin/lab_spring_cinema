@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,6 +23,12 @@ public class MovieController {
     public ResponseEntity<String> addNewMovie(@RequestBody MovieIO movie){
         String addMovieStatus = movieService.addNewMovie(movie.getTitle(), movie.getRating(), movie.getDuration());
         return new ResponseEntity<>(addMovieStatus, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Movie>> getAllMovies(){
+        List<Movie> movies = movieService.getAllMovies();
+        return new ResponseEntity<>(movies, HttpStatus.FOUND);
     }
 
     @GetMapping(value = "/{id}")
