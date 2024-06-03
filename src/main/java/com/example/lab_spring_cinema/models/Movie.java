@@ -1,10 +1,9 @@
 package com.example.lab_spring_cinema.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "movies");
 public class Movie {
 
     @Id
@@ -15,13 +14,13 @@ public class Movie {
     private String title;
 
     @Column(name = "rating")
-    private double rating;
+    private String rating;
 
     @Column(name = "duration")
     private double duration;
 
 
-    public Movie(String title, double rating, double duration){
+    public Movie(String title, String rating, double duration){
         this.title = title;
         this.rating = rating;
         this.duration = duration;
@@ -44,11 +43,11 @@ public class Movie {
         this.title = title;
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
@@ -59,6 +58,4 @@ public class Movie {
     public void setDuration(double duration) {
         this.duration = duration;
     }
-
-
 }
