@@ -3,6 +3,8 @@ package com.example.lab_spring_cinema.services;
 import com.example.lab_spring_cinema.models.Movie;
 import com.example.lab_spring_cinema.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,5 +38,16 @@ public class MovieService {
         movieRepository.save(movie);
         movieRepository.flush();
         return "Movie updated!";
+    }
+
+    public ResponseEntity<String> deleteMovieById(long id){
+        Optional<Movie> movieOptional = this.getMovieById(id);
+        if (movieOptional.isEmpty()){
+            return new ResponseEntity<>("Movie is not in the list", HttpStatus.NOT_FOUND);
+        } else{
+            movieRepository.deleteById(id);
+            movieRepository.flush();
+            return new ResponseEntity<>("Movie deleted", HttpStatus.ACCEPTED);
+        }
     }
 }
