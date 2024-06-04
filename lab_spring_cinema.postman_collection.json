@@ -101,7 +101,7 @@
 		{
 			"name": "deleteMovieById",
 			"request": {
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
 				"url": {
 					"raw": "localhost:8080/movies/delete/1",

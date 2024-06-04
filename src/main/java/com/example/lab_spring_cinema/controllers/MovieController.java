@@ -61,7 +61,7 @@ public class MovieController {
          return new ResponseEntity<>(updateMovieStatus, HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<String> deleteMovieById(@PathVariable long id){
         return movieService.deleteMovieById(id);
     }
